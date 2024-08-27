@@ -5,7 +5,8 @@ async function handelPostAllUser(req, res) {
     const data = new Models(req.body)
     try {
        await data.save()
-        res.status(201).send(data)
+       const token=await data.generateAuthToken()
+        res.status(201).send({data,token})
     } catch (e) {
         res.status(400).send(e)
     }
