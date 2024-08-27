@@ -1,6 +1,7 @@
 const Models = require("../models/user")
 const jwt=require("jsonwebtoken")
 
+
 async function handelPostAllUser(req, res) {
     const data = new Models(req.body)
     try {

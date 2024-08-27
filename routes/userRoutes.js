@@ -1,12 +1,13 @@
 const express = require("express")
 const router = express.Router()
+const auth=require("../middleware/auth")
 const { handelPostAllUser, handelGetAllUser, handelByIdUser, handelUpdateUser, handelDeleteUser,handelTologin} = require("../controlles/userController")
 
 
 router
     .route("/")
     .post(handelPostAllUser)
-    .get(handelGetAllUser)
+    .get(auth,handelGetAllUser)
 
 router
     .route("/:id")
