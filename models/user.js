@@ -45,6 +45,8 @@ const userSchema = new mongoose.Schema({
 
 },{timestamps:true})
 
+// ------------------this is for login----------
+
 userSchema.statics.findByCredentials = async function(email, password) {
     const user = await this.findOne({ email });
     if (!user) {
@@ -57,6 +59,7 @@ userSchema.statics.findByCredentials = async function(email, password) {
     return user;
 };
 
+// ------------------bcrypt---------------
 
 userSchema.pre("save",async function (next){
     const user=this

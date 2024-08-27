@@ -1,6 +1,5 @@
 const express = require("express")
 const router = express.Router()
-const hbs=require("hbs")
 const { handelPostAllUser, handelGetAllUser, handelByIdUser, handelUpdateUser, handelDeleteUser,handelTologin} = require("../controlles/userController")
 
 
