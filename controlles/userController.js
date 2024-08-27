@@ -68,7 +68,12 @@ async function handelTologin(req,res) {
     const { email, password } = req.body;
     try{
         const user=await Models.findByCredentials(email,password)
-           res.send(user)
+        const token=await user.generateAuthToken()
+           res.send({user,token})
+           console.log({user,token});
+        
+        
+           
     }catch(e){
         res.status(400).send()
     }
